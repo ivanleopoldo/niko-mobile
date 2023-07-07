@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "niko-mobile",
-    "slug": "niko-mobile",
+    "name": "nikomobile",
+    "slug": "nikomobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,6 +15,7 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "io.codemagic.sample.reactnative"
       "supportsTablet": true
     },
     "android": {
