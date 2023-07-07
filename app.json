@@ -15,7 +15,7 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "io.codemagic.sample.reactnative"
+      "bundleIdentifier": "io.codemagic.sample.reactnative",
       "supportsTablet": true
     },
     "android": {
