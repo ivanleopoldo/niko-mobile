@@ -21,4 +21,7 @@ workflows:
         artifacts:
             - android/app/build/outputs/**/**/*.apk
             - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
-
+        publishing:
+          email:
+            recipients:
+              - ivanleopoldoc@gmail.com
