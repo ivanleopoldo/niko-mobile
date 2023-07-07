@@ -1,30 +1,24 @@
 workflows:
-  simulator-native-ios:
-    name: iOS simulator build
-    max_build_duration: 120
-    instance_type: mac_mini_m1
-    environment:
-      vars:
-        XCODE_WORKSPACE: "your_workspace_name.xcworkspace"
-        XCODE_SCHEME: "your_workspace_name"
-      xcode: 13.3
-      cocoapods: default
-    scripts:
-      - name: Install CocoaPods dependencies
-        script: | 
-          pod install
-      - name: Build the .app
-        script: | 
-          xcodebuild build \
-            -workspace "$XCODE_WORKSPACE" \
-            -scheme "$XCODE_SCHEME" \
-            -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 14 Pro,OS=16.2' \
-            -configuration Debug \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO 
-    artifacts:
-      - /tmp/xcodebuild_logs/*.log
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
-      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
+    react-native:
+        name: reactnativeappsigning
+        environment:
+            vars:
+                XCODE_WORKSPACE: "testivan"
+                XCODE_SCHEME: "testivan"
+            node: latest
+        scripts:
+            - npm install
+            - echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+            - |
+                # build Android
+                cd android
+                ./gradlew assembleDebug
+            - |
+                # build iOS
+                cd ios
+                pod install
+                xcodebuild build -workspace "$XCODE_WORKSPACE.xcworkspace" -scheme "$XCODE_SCHEME" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+        artifacts:
+            - android/app/build/outputs/**/**/*.apk
+            - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.app
+
