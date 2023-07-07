@@ -14,7 +14,7 @@ workflows:
             script: |
               yarn install
               yarn global add expo-cli
-              expo eject
+              npx expo prebuild -y
           - name: Set Info.plist values
             script: |
               PLIST=$FCI_BUILD_DIR/$XCODE_SCHEME/Info.plist
