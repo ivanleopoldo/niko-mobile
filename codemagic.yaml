@@ -4,8 +4,8 @@ workflows:
         instance_type: mac_mini_m1
         environment:
           vars:
-            XCODE_WORKSPACE: "niko-mobile.xcworkspace"
-            XCODE_SCHEME: "niko-mobile"
+            XCODE_WORKSPACE: "nikomobile.xcworkspace"
+            XCODE_SCHEME: "nikomobile"
           xcode: latest
           node: 16.14.2
           cocoapods: default
