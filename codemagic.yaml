@@ -14,6 +14,7 @@ workflows:
             script: |
               npm install
               npm i -g expo-cli
+              npm i expo
               npx expo prebuild
           - name: Set Info.plist values
             script: |
