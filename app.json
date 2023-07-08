@@ -15,14 +15,15 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "io.codemagic.sample.reactnative",
+      "bundleIdentifier": "io.codemagic.niko",
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "io.codemagic.niko"
     },
     "web": {
       "favicon": "./assets/favicon.png"
